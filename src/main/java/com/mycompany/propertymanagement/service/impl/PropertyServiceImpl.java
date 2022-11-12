@@ -26,6 +26,10 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Value("${spring.datasource.url:}")
     private String dbUrl;
+
+    @Value("${spring.datasource.username:}")
+    private String userName;
+
     @Autowired
     private PropertyRepository propertyRepository;
     @Autowired
@@ -44,6 +48,7 @@ public class PropertyServiceImpl implements PropertyService {
     public List<PropertyDTO> getAllProperties() {
         System.out.println("Inside Service "+dummy);
         System.out.println("Inside Service "+dbUrl);
+        System.out.println("Inside Service "+userName);
 
         List<PropertyEntity> propertyEntityList = (List<PropertyEntity>) propertyRepository.findAll();
         List<PropertyDTO> propertyList = new ArrayList<>();
