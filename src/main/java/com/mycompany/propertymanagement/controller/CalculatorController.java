@@ -34,9 +34,9 @@ public class CalculatorController {
     public ResponseEntity<Double> multiply(@RequestBody CalculatorDTO calculatorDTO){
         Double result=null;
         result =calculatorDTO.getNum1()*calculatorDTO.getNum2()*calculatorDTO.getNum3()*calculatorDTO.getNum4();
-        ResponseEntity<Double> responseEntity= new ResponseEntity<Double>(result,HttpStatus.CREATED);
+        return new ResponseEntity<Double>(result,HttpStatus.CREATED);
         //return result;
-        return responseEntity;
+
 
     }
 }

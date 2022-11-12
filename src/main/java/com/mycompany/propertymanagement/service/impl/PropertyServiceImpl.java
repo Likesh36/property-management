@@ -46,9 +46,9 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDTO> getAllProperties() {
-        System.out.println("Inside Service "+dummy);
-        System.out.println("Inside Service "+dbUrl);
-        System.out.println("Inside Service "+userName);
+        System.out.println("Inside Service " + dummy);
+        System.out.println("Inside Service " + dbUrl);
+        System.out.println("Inside Service " + userName);
 
         List<PropertyEntity> propertyEntityList = (List<PropertyEntity>) propertyRepository.findAll();
         List<PropertyDTO> propertyList = new ArrayList<>();
@@ -68,8 +68,6 @@ public class PropertyServiceImpl implements PropertyService {
             PropertyEntity pe = optEnt.get();//data from database
             pe.setTitle(propertyDTO.getTitle());
             pe.setDescription(propertyDTO.getDescription());
-            pe.setOwnerName(propertyDTO.getOwnerName());
-            pe.setOwnerEmail(propertyDTO.getOwnerEmail());
             pe.setPrice(propertyDTO.getPrice());
             pe.setAddress(propertyDTO.getAddress());
             dto = propertyConverter.convertEntitytoDTO(pe);
