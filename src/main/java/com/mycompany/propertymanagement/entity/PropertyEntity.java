@@ -20,10 +20,6 @@ public class PropertyEntity {
     private String title;
     @Column(name="PROPERTY_DESCRIPTION",nullable = false)
     private String description;
-    @Column(name="PROPERTY_OWNER_NAME",nullable = false)
-    private String ownerName;
-    @Column(name="PROPERTY_OWNER_EMAIL",nullable = false)
-    private String ownerEmail;
     @Column(name="PROPERTY_PRICE",nullable = false)
     private Double price;
     @Column(name="PROPERTY_ADDRESS",nullable = false)

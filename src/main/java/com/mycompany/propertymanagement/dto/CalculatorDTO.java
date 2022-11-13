@@ -1,7 +1,6 @@
 package com.mycompany.propertymanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.web.bind.annotation.*;
 
 
 public class CalculatorDTO {
