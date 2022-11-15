@@ -2,9 +2,11 @@ package com.mycompany.propertymanagement.service.impl;
 
 import com.mycompany.propertymanagement.converter.UserConverter;
 import com.mycompany.propertymanagement.dto.UserDTO;
+import com.mycompany.propertymanagement.entity.AddressEntity;
 import com.mycompany.propertymanagement.entity.UserEntity;
 import com.mycompany.propertymanagement.exception.BusinessException;
 import com.mycompany.propertymanagement.exception.ErrorModel;
+import com.mycompany.propertymanagement.repository.AddressRepository;
 import com.mycompany.propertymanagement.repository.UserRepository;
 import com.mycompany.propertymanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private UserConverter userConverter;
+    @Autowired
+    private AddressRepository addressRepository;
 
     @Override
     public UserDTO register(UserDTO userDTO) {
@@ -37,6 +41,14 @@ public class UserServiceImpl implements UserService {
         }
         UserEntity ue = userConverter.convertDTOtoEntity(userDTO);
         ue = userRepository.save(ue);
+        AddressEntity ae = new AddressEntity();
+        ae.setHouseNumber(userDTO.getHouseNumber());
+        ae.setCity(userDTO.getCity());
+        ae.setPostalCode(userDTO.getPostalCode());
+        ae.setStreet(userDTO.getStreet());
+        ae.setCountry(userDTO.getCountry());
+        ae.setUserEntity(ue);
+        addressRepository.save(ae);
         userDTO = userConverter.convertEntitytoDTO(ue);
         return userDTO;
     }
