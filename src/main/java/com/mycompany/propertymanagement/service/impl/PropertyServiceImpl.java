@@ -113,6 +113,7 @@ public class PropertyServiceImpl implements PropertyService {
             dto = propertyConverter.convertEntitytoDTO(pe);
             propertyRepository.save(pe);
         }
+
         return dto;
     }
 

@@ -20,7 +20,7 @@ public class CalculatorController {
 
     //http://localhost:8080/api/v1/calculator/sub/4.5/5.4
     @GetMapping("/sub/{num1}/{num2}")//map the values of url to java variables by Path variable method
-    public Double substract(@PathVariable("num1") Double num1, @PathVariable("num2") Double num2){
+    public Double subtract(@PathVariable("num1") Double num1, @PathVariable("num2") Double num2){
         Double result=null;
         if(num1>num2){
             result=num1-num2;

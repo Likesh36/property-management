@@ -42,6 +42,7 @@ public class PropertyController {
         List<PropertyDTO> propertyList = propertyService.getAllProperties();
         return new ResponseEntity<>(propertyList, HttpStatus.OK);
     }
+
     @GetMapping("/properties/users/{userId}")
     public ResponseEntity<List<PropertyDTO>> getAllPropertiesForUser(@PathVariable("userId") Long userId) {
 
